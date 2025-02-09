@@ -38,7 +38,8 @@ const questions = [
 export default function QuizApp() {
   const [quizStarted, setQuizStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(10);
   const [quizFinished, setQuizFinished] = useState(false);
