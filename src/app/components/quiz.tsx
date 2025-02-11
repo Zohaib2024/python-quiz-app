@@ -167,7 +167,7 @@ export default function QuizApp() {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(30);
   const [quizFinished, setQuizFinished] = useState(false);
   const [quizAttempted, setQuizAttempted] = useState(false);
 
@@ -203,7 +203,7 @@ export default function QuizApp() {
     setQuizFinished(false);
     setScore(0);
     setCurrentQuestion(0);
-    setTimeLeft(10);
+    setTimeLeft(30);
     enterFullScreen();
   };
 
@@ -252,7 +252,7 @@ export default function QuizApp() {
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
-      setTimeLeft(10);
+      setTimeLeft(30);
     } else {
       setQuizFinished(true);
       localStorage.setItem("quizAttempted", "true");
@@ -265,12 +265,6 @@ export default function QuizApp() {
         <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md text-center">
           <h2 className="text-xl font-bold text-red-500">Access Denied!</h2>
           <p className="mt-2">You have already attempted the quiz.</p>
-          <button
-            onClick={exitFullScreen}
-            className="mt-4 px-6 py-3 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600"
-          >
-            Close
-          </button>
         </div>
       </div>
     );
