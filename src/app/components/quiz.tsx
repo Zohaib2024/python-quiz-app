@@ -4,160 +4,73 @@ import { useState, useEffect } from "react";
 
 const questions = [
   {
-    question:
-      "Which of the following is the correct way to declare a variable in Python?",
-    options: ["int x = 10;", "x := 10;", "x = 10", "var x = 10;"],
-    answer: "x = 10",
+    question: "How do you create an object of a class Car in Python?",
+    options: ["car = new Car()", "car = Car()", "Car = new Car()", "Car = Car"],
+    answer: "car = Car()",
   },
   {
-    question: "How do you write a single-line comment in Python?",
+    question: "Which statement about Python inheritance is TRUE?",
     options: [
-      "// This is a comment",
-      "/* This is a comment */",
-      "# This is a comment",
-      "<!-- This is a comment -->",
+      "A subclass cannot override methods from a superclass",
+      "A class can inherit from multiple classes in Python",
+      "Python does not support inheritance",
+      "The super() function is used to call a child class method",
     ],
-    answer: "# This is a comment",
+    answer: "A class can inherit from multiple classes in Python",
   },
   {
-    question: "What is the difference between a list and a tuple in Python??",
+    question: "What is method overriding in Python?",
     options: [
-      "Lists are immutable, tuples are mutable",
-      "Lists are mutable, tuples are immutable",
-      "Both lists and tuples are mutable",
-      "Both lists and tuples are immutable",
-    ],
-    answer: "Lists are mutable, tuples are immutable",
-  },
-  {
-    question: "Which of the following is NOT a built-in data type in Python?",
-    options: ["int", "float", "array", "tuple"],
-    answer: "array ",
-  },
-  {
-    question: "What is the difference between print() and return in Python?",
-    options: [
-      "print() displays output, return gives a value back from a function",
-      "print() and return both display output",
-      "return displays output, print() is used in functions",
-      "return is used for debugging only",
+      "Redefining a method in a subclass that already exists in the parent class",
+      "Using multiple methods with the same name in the same class",
+      "Using the same method name but different parameter types",
+      "Calling a method from another class",
     ],
     answer:
-      "print() displays output, return gives a value back from a function",
+      "Redefining a method in a subclass that already exists in the parent class",
   },
+
   {
-    question: "What is the correct syntax to define a function in Python?",
+    question:
+      "What happens when a class method is decorated with @staticmethod?",
     options: [
-      "function myFunc():",
-      "def myFunc():",
-      "void myFunc():",
-      "define myFunc():",
+      "It cannot be accessed outside the class",
+      "It does not receive the self parameter",
+      "It can only be called on an instance of the class",
+      "It can access instance attributes",
     ],
-    answer: "def myFunc():",
-  },
-  {
-    question: "Which of the following is immutable in Python?",
-    options: ["list", "set", "dict", "tuple"],
-    answer: "tuple ",
+    answer: "It does not receive the self parameter",
   },
   {
     question:
-      "What is the difference between break and continue in Python loops?",
+      "Which of the following statements about encapsulation in Python is TRUE?",
     options: [
-      "break skips the next iteration, continue stops the loop",
-      "break stops the loop, continue skips the current iteration",
-      "Both break and continue stop the loop",
-      "There is no difference",
+      "There is no way to restrict access to class attributes",
+      "Private attributes can be accessed using double underscore __",
+      "Encapsulation allows controlling access to data within a class",
+      "Python does not support encapsulation",
     ],
-    answer: "break stops the loop, continue skips the current iteration",
+    answer: "Encapsulation allows controlling access to data within a class",
   },
   {
-    question:
-      "What mode should be used to open a file for reading only in Python?",
-    options: ["w", "r", "a", "x"],
-    answer: "r ",
-  },
-  {
-    question: "What is the correct syntax to define a dictionary in Python?",
-    options: ["[]", "{}", "()", "dict()"],
-    answer: "{}",
-  },
-  {
-    question:
-      "Which of the following methods removes the last element from a list?",
-    options: ["discard()", "pop()", "delete()", "remove()"],
-    answer: "pop()",
-  },
-  {
-    question: "Which of the following is NOT a valid way to create a string?",
-    options: ["'hello'", '"hello"', "str('Hello')", "'''Hello'''"],
-    answer: "str('Hello')",
-  },
-  {
-    question: "How do you open a file in read mode in Python?",
+    question: "How can you define a private variable in Python?",
     options: [
-      'open("file.txt")',
-      'open("file.txt", "rb")',
-      'open("file.txt", "r")',
-      'open("file.txt", "w")',
+      "By using a single underscore _var",
+      "By using double underscore __var",
+      "By using triple underscore ___var",
+      "By using the private keyword",
     ],
-    answer: 'open("file.txt", "r")',
+    answer: "By using double underscore __var",
   },
   {
-    question: "What is the purpose of pass in Python?",
+    question: "What is the purpose of the super() function in Python?",
     options: [
-      "It terminates a loop",
-      "It skips execution inside a function or loop",
-      "It returns a value",
-      "It raises an exception",
+      "To call a static method",
+      "To call a method from the parent class",
+      "To create an instance of a class",
+      "To define a private variable",
     ],
-    answer: "It skips execution inside a function or loop",
-  },
-  {
-    question: "Which keyword is used for function definition in Python?",
-    options: ["define", "def", "func", "lambda"],
-    answer: "def",
-  },
-  {
-    question: "Which operator is used for exponentiation in Python?",
-    options: ["^", "**", "//", "%"],
-    answer: "**",
-  },
-  {
-    question: "What is the difference between append() and extend() in lists?",
-    options: [
-      "They are the same",
-      "extend() works only for strings",
-      "append() adds multiple elements at once, extend() adds one at a time",
-      "append() adds elements individually, extend() adds elements as a list",
-    ],
-    answer:
-      "append() adds elements individually, extend() adds elements as a list",
-  },
-  {
-    question: "Which of the following is an invalid variable name in Python?",
-    options: ["_myVar", "my_var", "2ndVariable", "myVar2"],
-    answer: "2ndVariable",
-  },
-  {
-    question: "What does None represent in Python?",
-    options: [
-      "The number 0",
-      "An empty string",
-      "A null value",
-      "A Boolean False",
-    ],
-    answer: "A null value",
-  },
-  {
-    question: "What is the difference between == and = in Python?",
-    options: [
-      "== is for assignment, = is for comparison",
-      "= is for assignment, == is for comparison",
-      "Both are used for comparison",
-      "Both are used for assignment",
-    ],
-    answer: "= is for assignment, == is for comparison",
+    answer: "To call a method from the parent class",
   },
 ];
 
